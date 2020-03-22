@@ -100,7 +100,7 @@ abstract class AbstractWalk implements WalkInterface
      * @param $item
      * @return bool
      */
-    private function instanceFilter($item): bool
+    protected function instanceFilter($item): bool
     {
         $result = false;
         $instances = $this->getValidInstance();
@@ -120,9 +120,9 @@ abstract class AbstractWalk implements WalkInterface
      * @param mixed $item
      * @return bool
      */
-    public function itemFilter($item): bool
+    protected function itemFilter($item): bool
     {
-        return true;
+        return $this->options->itemFilter($item);
     }
 
     /**

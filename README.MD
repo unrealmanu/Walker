@@ -59,10 +59,6 @@ Return the "raw" generator used for walking in the deepest of elements...
 walkGen($parent) [best perfomance]
 ```
 
-Make your custom logic filter`for item of recursive processes in extension of asbtract class
-```php
-public function itemFilter($item): bool
-```
 
 #### OPTIONS
 ##### unrealmanu\Walker\DTO\WalkOptions (predefined)
@@ -80,7 +76,10 @@ Set the limit of deepest recursion level
 ```php
     public function setRecursiveDepthLimit(int $recursiveDepthLimit): void;
 ```
-
+Make your custom logic filter`for item of recursive processes
+```php
+    public function itemFilter($item): bool
+```
 
 
 

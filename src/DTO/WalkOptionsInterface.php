@@ -39,4 +39,10 @@ interface WalkOptionsInterface
      * @param int $recursiveDepthLimit
      */
     public function setRecursiveDepthLimit(int $recursiveDepthLimit): void;
+
+    /**
+     * @param $item
+     * @return bool
+     */
+    public function itemFilter($item): bool;
 }

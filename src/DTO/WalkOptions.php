@@ -2,9 +2,7 @@
 
 namespace unrealmanu\Walker\DTO;
 
-use stdClass;
-
-class WalkOptions implements WalkOptionsInterface
+abstract class WalkOptions implements WalkOptionsInterface
 {
     /**
      * @var bool $recursiveProcess
@@ -103,5 +101,13 @@ class WalkOptions implements WalkOptionsInterface
             return true;
         }
         return false;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function itemFilter($item): bool
+    {
+        return true;
     }
 }

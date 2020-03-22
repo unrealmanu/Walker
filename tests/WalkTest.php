@@ -8,6 +8,14 @@ use unrealmanu\Walker\Walk;
 use unrealmanu\Walker\DTO\WalkOptions;
 use unrealmanu\Walker\DTO\WalkOptionsInterface;
 
+final class Options extends WalkOptions
+{
+    public function itemFilter($item): bool
+    {
+        return true;
+    }
+}
+
 final class ExampleObject
 {
     public $text = "myText";
@@ -38,7 +46,7 @@ final class WalkTest extends TestCase
 {
     public function testOptions()
     {
-        $options = new WalkOptions();
+        $options = new Options();
         $walker = new Walk($options);
         $this->assertInstanceOf(Walk::class, $walker);
         $this->assertInstanceOf(WalkOptionsInterface::class, $options);
@@ -49,7 +57,7 @@ final class WalkTest extends TestCase
     {
         $object = new ExampleObject();
         $parent = new ExampleData($object);
-        $options = new WalkOptions();
+        $options = new Options();
         $options->setRecursiveProcessStatus(true);
         $walker = new Walk($options);
         $result = $walker->walk($parent);
@@ -63,7 +71,7 @@ final class WalkTest extends TestCase
     {
         $object = new ExampleObject();
         $parent = new ExampleData($object);
-        $options = new WalkOptions();
+        $options = new Options();
         $options->setRecursiveProcessStatus(false);
         $walker = new Walk($options);
         $result = $walker->walk($parent);
@@ -76,7 +84,7 @@ final class WalkTest extends TestCase
     {
         $object = new ExampleObject();
         $parent = new ExampleData($object);
-        $options = new WalkOptions();
+        $options = new Options();
         $options->setRecursiveProcessStatus(false);
         $walker = new Walk($options);
         $result = $walker->walk($parent);
@@ -87,7 +95,7 @@ final class WalkTest extends TestCase
     {
         $object = new ExampleObject();
         $parent = new ExampleData($object);
-        $options = new WalkOptions();
+        $options = new Options();
         $walker = new Walk($options);
         $result = $walker->walk($parent);
         $this->assertIsInt($walker->getDephLevel());
@@ -97,7 +105,7 @@ final class WalkTest extends TestCase
     {
         $object = new ExampleObject();
         $parent = new ExampleData($object);
-        $options = new WalkOptions();
+        $options = new Options();
         $options->setRecursiveProcessStatus(true);
         $options->setRecursiveDepthLimit(1);
         $walker = new Walk($options);
@@ -110,7 +118,7 @@ final class WalkTest extends TestCase
     {
         $object = new ExampleObject();
         $parent = new ExampleData($object);
-        $options = new WalkOptions();
+        $options = new Options();
         $options->setRecursiveProcessStatus(true);
         $walker = new Walk($options);
         $result = $walker->walkGen($parent);
@@ -121,7 +129,20 @@ final class WalkTest extends TestCase
     {
         $object = new ExampleObject();
         $parent = new ExampleData($object);
-        $options = new WalkOptions();
+        $options = new Options();
+        $options->setRecursiveProcessStatus(true);
+        $options->setRecursiveDepthLimit(1);
+        $options->setFilterInstance([ExampleObject::class]);
+        $walker = new Walk($options);
+        $result = $walker->walk($parent);
+        $this->assertInstanceOf(ExampleObject::class, $result[0]);
+    }
+
+    public function testRecursiceCustomItemFilter()
+    {
+        $object = new ExampleObject();
+        $parent = new ExampleData($object);
+        $options = new Options();
         $options->setRecursiveProcessStatus(true);
         $options->setRecursiveDepthLimit(1);
         $options->setFilterInstance([ExampleObject::class]);

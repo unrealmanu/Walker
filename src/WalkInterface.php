@@ -7,14 +7,6 @@ use Generator;
 
 interface WalkInterface
 {
-
-    // CUSTOM ITEM FILTER LOGIC
-    /**
-     * @param mixed $item
-     * @return bool
-     */
-    public function itemFilter($item): bool;
-
     // CUSTOM ITEM GET CHILDREN LOGIC
     /**
      * @param array $parent
