@@ -62,7 +62,7 @@ walkGen($parent) [best perfomance]
 Make your custom logic filter`for item of recursive processes in extension of asbtract class
 ```php
 public function itemFilter($item): bool
-``
+```
 
 #### OPTIONS
 ##### unrealmanu\Walker\DTO\WalkOptions (predefined)
