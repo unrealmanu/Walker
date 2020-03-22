@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 
 echo "Running pre-commit hook"
+
+composer fix src
+composer fix tests
+
 ./scripts/run-tests.bash
 
 # $? stores exit value of the last command
