@@ -13,9 +13,13 @@
   "description": "walker recursive abstract helper",
   "homepage": "https://github.com/unrealmanu/",
   "keywords": [
-    "symfony",
     "recursive",
-    "walker"
+    "walker",
+    "depth",
+    "filter",
+    "asbtract",
+    "foreach",
+    "generator"
   ],
   "require": {
     "php": "^7.2"
