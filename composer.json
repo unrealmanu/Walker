@@ -1,0 +1,41 @@
+{
+  "version": "0.0.1",
+  "name": "unrealmanu/walker",
+  "authors": [
+    {
+      "name": "Manuel Trebbi",
+      "email": "unrealmanumaster@gmail.com",
+      "homepage": "https://manueltrebbi.netlify.com",
+      "role": "Developer"
+    }
+  ],
+  "license": "MIT",
+  "description": "walker recursive model interface and class",
+  "homepage": "https://github.com/unrealmanu/",
+  "keywords": [
+    "symfony",
+    "recursive",
+    "walker"
+  ],
+  "require": {
+    "php": "^7.2"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9",
+    "friendsofphp/php-cs-fixer": "^2.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "unrealmanu\\Walker\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "unrealmanu\\Walker\\": "tests/"
+    }
+  },
+  "scripts": {
+    "test": "@php vendor/bin/phpunit --colors=always",
+    "fix": "@php vendor/bin/php-cs-fixer fix"
+  }
+}
