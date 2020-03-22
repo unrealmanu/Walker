@@ -1,6 +1,6 @@
 {
   "version": "0.0.1",
-  "name": "unrealmanu/walker",
+  "name": "unrealmanu/abstract-walker",
   "authors": [
     {
       "name": "Manuel Trebbi",
@@ -10,7 +10,7 @@
     }
   ],
   "license": "MIT",
-  "description": "walker recursive model interface and class",
+  "description": "walker recursive abstract helper",
   "homepage": "https://github.com/unrealmanu/",
   "keywords": [
     "symfony",
