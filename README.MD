@@ -1,7 +1,7 @@
 # ABSTRACT WALKER
 ##### Manuel Trebbi <unrealmanumaster@gmail.com>
 
-##Walk on the deepest level of object or array with filter by instance and control of deep level
+###Walk on the deepest level of object or array with filter by instance and control of deep level
 
 ### CMD LIST
 #### Launch TEST:
@@ -26,10 +26,8 @@ composer fix src
 
 ### Necessary Method
 ```php
-    /**
-     * @param array $parent
-     */
-    public function loadChildren(array $parent);
+
+    abstract function loadChildren(array $parent);
 
     /**
      * @param $parent
