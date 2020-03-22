@@ -59,6 +59,11 @@ Return the "raw" generator used for walking in the deepest of elements...
 walkGen($parent) [best perfomance]
 ```
 
+Make your custom logic filter`for item of recursive processes in extension of asbtract class
+```php
+public function itemFilter($item): bool
+``
+
 #### OPTIONS
 ##### unrealmanu\Walker\DTO\WalkOptions (predefined)
 ##### unrealmanu\Walker\DTO\WalkOptionsInterface (for future implementation)

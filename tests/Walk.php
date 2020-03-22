@@ -20,6 +20,12 @@ class Walk extends AbstractWalk implements WalkInterface
         parent::__construct($options);
     }
 
+    // MAKE YOUR CUSTOM LOGIC FOR FILTER ITEMS
+    public function itemFilter($item): bool
+    {
+        return parent::itemFilter($item);
+    }
+
     /**
      * @param WalkOptionsInterface $options
      * @return WalkOptionsInterface
@@ -47,6 +53,7 @@ class Walk extends AbstractWalk implements WalkInterface
         return parent::walkGen($parent);
     }
 
+    // MAKE YOUR CUSTOM LOGIC FOR GET CHILDREN IN RECURSIVE PROCESSES
     /**
      * @param array|mixed $parent
      * @return mixed

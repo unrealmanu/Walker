@@ -117,6 +117,15 @@ abstract class AbstractWalk implements WalkInterface
     }
 
     /**
+     * @param mixed $item
+     * @return bool
+     */
+    public function itemFilter($item): bool
+    {
+        return true;
+    }
+
+    /**
      * @param mixed $parent
      */
     abstract function loadChildren($parent);
@@ -135,9 +144,10 @@ abstract class AbstractWalk implements WalkInterface
                 $this->nextDepthLvl();
                 foreach ($results as $item) {
 
-                    if ($this->instanceFilter($item)) {
+                    if ($this->instanceFilter($item) && $this->itemFilter($item)) {
                         yield $item;
                     }
+
 
                     if ($this->getRecursiveProcessStatus()) {
                         yield from $this->recursive($item);
