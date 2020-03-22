@@ -116,4 +116,17 @@ final class WalkTest extends TestCase
         $result = $walker->walkGen($parent);
         $this->assertInstanceOf(Generator::class, $result);
     }
+
+    public function testRecursiveFilter()
+    {
+        $object = new ExampleObject();
+        $parent = new ExampleData($object);
+        $options = new WalkOptions();
+        $options->setRecursiveProcessStatus(true);
+        $options->setRecursiveDepthLimit(1);
+        $options->setFilterInstance([ExampleObject::class]);
+        $walker = new Walk($options);
+        $result = $walker->walk($parent);
+        $this->assertInstanceOf(ExampleObject::class, $result[0]);
+    }
 }

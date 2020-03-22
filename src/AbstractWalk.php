@@ -37,7 +37,6 @@ abstract class AbstractWalk implements WalkInterface
      */
     public function setOptions(WalkOptionsInterface $options): WalkOptionsInterface
     {
-        /** @var WalkOptionsInterface $options */
         return $this->options = $options;
     }
 
@@ -108,7 +107,6 @@ abstract class AbstractWalk implements WalkInterface
         if (count($instances) > 0) {
             foreach ($instances as $instance) {
                 if ($item instanceof $instance) {
-
                     return true;
                 }
             }
@@ -132,7 +130,7 @@ abstract class AbstractWalk implements WalkInterface
 
         if ($this->getDepthLimit() == -1 || $this->getDephLevel() < $this->getDepthLimit()) {
             $results = $this->loadChildren($parent);
-            if (is_object($results) || is_array($results) && count($results) > 0) {
+            if (is_object($results) || (is_array($results) && count($results) > 0)) {
 
                 $this->nextDepthLvl();
                 foreach ($results as $item) {

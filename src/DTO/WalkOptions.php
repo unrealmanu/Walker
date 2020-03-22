@@ -69,7 +69,12 @@ class WalkOptions implements WalkOptionsInterface
      */
     public function setFilterInstance(array $class): array
     {
-        $validItems = array_filter($class, "isValidItemForFilter");
+        $validItems = [];
+        foreach ($class as $item){
+            if($this->isValidItemForFilter($item)){
+                $validItems[] = $item;
+            }
+        }
         $this->filterInstance = $validItems;
         return $validItems;
     }
@@ -78,7 +83,7 @@ class WalkOptions implements WalkOptionsInterface
      * @param $item
      * @return bool
      */
-    protected function isValidItemForFilter($item): bool
+    public function isValidItemForFilter($item): bool
     {
         $accept = false;
         try {
@@ -89,12 +94,12 @@ class WalkOptions implements WalkOptionsInterface
     }
 
     /**
-     * @param stdClass $class
+     * @param $class
      * @return bool
      */
-    protected function isClass(stdClass $class): bool
+    protected function isClass($class): bool
     {
-        if (is_object($class)) {
+        if (class_exists($class)) {
             return true;
         }
         return false;
