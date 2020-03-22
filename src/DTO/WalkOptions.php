@@ -70,8 +70,8 @@ class WalkOptions implements WalkOptionsInterface
     public function setFilterInstance(array $class): array
     {
         $validItems = [];
-        foreach ($class as $item){
-            if($this->isValidItemForFilter($item)){
+        foreach ($class as $item) {
+            if ($this->isValidItemForFilter($item)) {
                 $validItems[] = $item;
             }
         }

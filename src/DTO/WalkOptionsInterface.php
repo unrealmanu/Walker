@@ -39,5 +39,4 @@ interface WalkOptionsInterface
      * @param int $recursiveDepthLimit
      */
     public function setRecursiveDepthLimit(int $recursiveDepthLimit): void;
-
 }

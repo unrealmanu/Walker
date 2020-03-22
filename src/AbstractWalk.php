@@ -128,7 +128,7 @@ abstract class AbstractWalk implements WalkInterface
     /**
      * @param mixed $parent
      */
-    abstract function loadChildren($parent);
+    abstract public function loadChildren($parent);
 
     /**
      * @param $parent
@@ -136,14 +136,11 @@ abstract class AbstractWalk implements WalkInterface
      */
     protected function recursive($parent): Generator
     {
-
         if ($this->getDepthLimit() == -1 || $this->getDephLevel() < $this->getDepthLimit()) {
             $results = $this->loadChildren($parent);
             if (is_object($results) || (is_array($results) && count($results) > 0)) {
-
                 $this->nextDepthLvl();
                 foreach ($results as $item) {
-
                     if ($this->instanceFilter($item) && $this->itemFilter($item)) {
                         yield $item;
                     }
@@ -152,7 +149,6 @@ abstract class AbstractWalk implements WalkInterface
                     if ($this->getRecursiveProcessStatus()) {
                         yield from $this->recursive($item);
                     }
-
                 }
             }
         }
@@ -185,5 +181,4 @@ abstract class AbstractWalk implements WalkInterface
     {
         return $this->recursive($parent);
     }
-
 }

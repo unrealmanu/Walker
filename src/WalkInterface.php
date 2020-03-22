@@ -3,7 +3,6 @@
 
 namespace unrealmanu\Walker;
 
-
 use Generator;
 
 interface WalkInterface
@@ -35,5 +34,4 @@ interface WalkInterface
      * @return Generator
      */
     public function walkGen($parent): Generator;
-
 }
