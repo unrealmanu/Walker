@@ -76,7 +76,7 @@ Set the limit of deepest recursion level
 ```php
     public function setRecursiveDepthLimit(int $recursiveDepthLimit): void;
 ```
-Make your custom logic filter`for item of recursive processes
+Make your custom logic filter for item in recursive processes
 ```php
     public function itemFilter($item): bool
 ```
